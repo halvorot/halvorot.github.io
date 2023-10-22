@@ -1,107 +1,44 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import Header from "../components/Header.astro";
+import Navigation from "../components/Navigation.astro";
 ---
 
 <Layout title="Halvor Teigen">
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#capabilities">Capabilities</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <Header />
   <section class="hero-section">
-    <img src="halvor-bg.jpg" alt="Image of Halvor Teigen" />
+    <img
+      src="halvor-bg.jpg"
+      alt="Image of Halvor Teigen"
+      class="fixed -z-10 -top-24 opacity-20"
+    />
     <main>
-      <h1>Hi, I'm <span class="text-gradient">Halvor Teigen</span></h1>
-      <h2>Backend developer & DevOps enthusiast</h2>
-      <div class="ingress-box">
-        <svg
-          class="ingress-logo"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 55 55"
+      <h1 class="text-6xl font-bold text-center mt-20 mb-20">
+        Hi, I'm <span
+          class="bg-gradient-to-r from-orange-500 to-orange-300 bg-clip-text text-transparent"
+          >Halvor Teigen</span
         >
-          <circle cx="27.5" cy="27.5" r="27" stroke="white"></circle>
-          <path
-            d="M16.5227 42V12.9091H20.0455V25.8636H35.5568V12.9091H39.0795V42H35.5568V28.9886H20.0455V42H16.5227Z"
-            fill="#FF7519"></path>
-        </svg>
+      </h1>
+      <h2 class="text-3xl font-light text-center capitalize">
+        Backend developer & DevOps enthusiast
+      </h2>
+      <div
+        class="mb-8 mt-32 p-16 bg-black text-center rounded-xl flex flex-col items-center justify-center"
+      >
+        <img src="/logo.svg" class="mb-10 w-20" alt="Halvor Teigen Logo" />
         <p class="ingress">
-          As a software engineer with the <strong
-            >everything-can-be-learned</strong
-          > mentality, I believe that every project I work on is an opportunity
-          to further develop my skills and knowledge. I am dedicated to
-          producing work that I am proud of, and I strive to deliver the best <strong
-            >quality</strong
-          > possible. I value collaboration and believe that teamwork and <strong
-            >knowledge sharing</strong
-          > is the key to success.
+          As a software engineer with the <strong>everything-can-be-learned</strong> mentality, 
+          I believe that every project I work on is an opportunity to further develop my skills and knowledge. 
+          I am dedicated to producing work that I am proud of, and I strive to deliver the best <strong>quality</strong> possible. 
+          I value collaboration and believe that teamwork and <strong>knowledge sharing</strong> is the key to success.
         </p>
       </div>
-      <ul role="list" class="link-card-grid">
-        <Card
-          href="https://docs.astro.build/"
-          title="Documentation"
-          body="Learn how Astro works and explore the official API docs."
-        />
-        <Card
-          href="https://astro.build/integrations/"
-          title="Integrations"
-          body="Supercharge your project with new frameworks and libraries."
-        />
-        <Card
-          href="https://astro.build/themes/"
-          title="Themes"
-          body="Explore a galaxy of community-built starter themes."
-        />
-        <Card
-          href="https://astro.build/chat/"
-          title="Community"
-          body="Come say hi to our amazing Discord community. ❤️"
-        />
-      </ul>
     </main>
   </section>
 </Layout>
 
 <style>
-  header {
-    background-color: rgba(0, 0, 0, 0.6);
-    height: 10vh;
-  }
-  nav {
-    height: 100%;
-  }
-  nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-  }
-  nav li {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  nav a {
-    text-decoration: none;
-    color: white;
-    height: 100%;
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-  nav a:hover {
-    background-color: rgb(0, 0, 0, 60%);
-  }
   main {
     margin: auto;
     padding: 1rem;
@@ -110,45 +47,6 @@ import Card from "../components/Card.astro";
     color: white;
     font-size: 18px;
     line-height: 1.5;
-  }
-  h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  h2 {
-    font-size: 2rem;
-    font-weight: 200;
-    line-height: 1;
-    text-align: center;
-    text-transform: capitalize;
-  }
-  .hero-section img {
-    position: fixed;
-    top: -100px;
-    opacity: 20%;
-    z-index: -1;
-  }
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-  }
-  .ingress-box {
-    margin-bottom: 2rem;
-    margin-top: 10rem;
-    background: black;
-    padding: 5rem 10% 5rem 10%;
-    border-radius: 8px;
-    text-align: center;
-  }
-  .ingress-logo {
-    margin-bottom: 2rem;
-    width: 5rem;
   }
   .ingress code {
     font-size: 0.8em;
@@ -159,12 +57,6 @@ import Card from "../components/Card.astro";
     padding: 0.3em 0.4em;
   }
   .ingress strong {
-    color: rgb(var(--accent-light), 80%);
-  }
-  .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 2rem;
-    padding: 0;
+    @apply text-orange-300 opacity-80;
   }
 </style>
