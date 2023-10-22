@@ -1,6 +1,9 @@
 ---
 import PrimaryButton from "./PrimaryButton.astro";
 import { Bars3Icon } from "@heroicons/react/24/solid";
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
 ---
 
 <nav class="bg-black bg-opacity-30">
@@ -34,12 +37,10 @@ import { Bars3Icon } from "@heroicons/react/24/solid";
       <ul
         class="flex flex-col font-medium p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-transparent"
       >
-        <li>
-          <a href="/" class="text-orange-500" aria-current="page">Home</a>
-        </li>
-        <li><a href="#capabilities">Capabilities</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="/" class={currentPath === "" ? "active-item" : ""}>Home</a></li>
+        <li><a href="/capabilities" class={currentPath === "capabilities" ? "active-item" : ""}>Capabilities</a></li>
+        <li><a href="/" class={currentPath === "experience" ? "active-item" : ""}>Experience</a></li>
+        <li><a href="/" class={currentPath === "contact" ? "active-item" : ""}>Contact</a></li>
       </ul>
     </div>
   </div>
@@ -47,5 +48,8 @@ import { Bars3Icon } from "@heroicons/react/24/solid";
 <style>
   nav li {
     @apply block py-2 pl-3 pr-4 bg-transparent hover:text-orange-300 md:p-0 text-white;
+  }
+  .active-item {
+    @apply text-orange-500
   }
 </style>
