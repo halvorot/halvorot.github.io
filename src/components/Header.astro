@@ -1,13 +1,7 @@
 ---
 import Navigation from "./Navigation.astro";
-
-interface Props {
-	currentPage: string;
-}
-
-const { currentPage } = Astro.props;
 ---
 
 <header>
-  <Navigation currentPage={currentPage}/>
+  <Navigation />
 </header>
