@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
-import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import { Icon } from 'astro-icon';
 import Footer from "../components/Footer.astro";
 import H1 from "../components/H1.astro";
 ---
@@ -31,12 +31,12 @@ import H1 from "../components/H1.astro";
           });
           "
         >
-          <ChevronDownIcon className="w-10" />
+          <Icon name="bi:chevron-compact-down" class="w-10" />
         </button>
       </div>
       <div
         id="ingress-box"
-        class="bg-black text-center rounded-xl flex flex-col items-center justify-center mb-40 mt-10 py-5 px-3 md:mb-24 md:mt-12 md:p-16"
+        class="bg-black text-center rounded-xl flex flex-col items-center justify-center mb-40 mt-10 py-12 px-3 md:mb-24 md:mt-12 md:p-16"
       >
         <img src="/logo.svg" class="mb-10 w-20" alt="Halvor Teigen Logo" />
         <p class="ingress">
