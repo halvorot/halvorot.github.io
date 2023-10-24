@@ -1,9 +1,10 @@
 ---
 import PrimaryButton from "./PrimaryButton.astro";
-import { Icon } from 'astro-icon';
+import { Icon } from "astro-icon";
+
+import navData from "../data/navData";
 
 const pathname = Astro.url.pathname;
-const currentPath = pathname.slice(1); // remove the first "/"
 ---
 
 <nav class="bg-black bg-opacity-30">
@@ -11,9 +12,8 @@ const currentPath = pathname.slice(1); // remove the first "/"
     class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
   >
     <a href="/" class="flex items-center" aria-label="Go Home">
-      <Icon name="h-logo" class="w-10 mr-3" alt="Halvor Teigen Logo"/>
-      <span
-        class="hidden sm:block text-2xl font-semibold text-white capitalize"
+      <Icon name="h-logo" class="w-10 mr-3" alt="Halvor Teigen Logo" />
+      <span class="hidden sm:block text-2xl font-semibold text-white capitalize"
         >Halvor Teigen</span
       >
     </a>
@@ -37,19 +37,21 @@ const currentPath = pathname.slice(1); // remove the first "/"
       <ul
         class="flex flex-col font-medium p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-transparent"
       >
-        <li><a href="/" class={currentPath === "" ? "active-item" : ""}>Home</a></li>
-        <li><a href="/capabilities" class={currentPath === "capabilities" ? "active-item" : ""}>Capabilities</a></li>
-        <li><a href="/" class={currentPath === "experience" ? "active-item" : ""}>Experience</a></li>
-        <li><a href="https://www.linkedin.com/in/halvor-teigen/" target="_blank" class={currentPath === "contact" ? "active-item" : ""}>Contact</a></li>
+        {
+          navData.map((item) => (
+            <li class="block py-2 pl-3 pr-4 bg-transparent hover:text-orange-300 md:p-0 text-white">
+              <a href={item.path} aria-current={pathname === item.path && "page"} target={item.name.toLowerCase() === "contact" ? "_blank" : "_self"}>
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </div>
 </nav>
 <style>
-  nav li {
-    @apply block py-2 pl-3 pr-4 bg-transparent hover:text-orange-300 md:p-0 text-white;
-  }
-  .active-item {
-    @apply text-orange-500
+  [aria-current="page"] {
+    @apply text-orange-500;
   }
 </style>
