@@ -76,7 +76,7 @@ import navData from "../data/navData";
       .getElementById("nav-link-" + currentPath)
       ?.setAttribute("aria-current", "page");
       
-  }
+  };
   document.addEventListener("astro:page-load", setActiveLinkFunc);
   document.addEventListener("astro:after-swap", setActiveLinkFunc);
 
