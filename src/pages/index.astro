@@ -1,17 +1,16 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
-import { Icon } from "astro-icon";
-import H1 from "../components/H1.astro";
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon";
+import MainLayout from "../layouts/MainLayout.astro";
+import H1 from "../components/H1.astro";
+import halvorBackgroundImage from "../images/halvor-bg.jpg";
 ---
 
 <MainLayout title="Halvor Teigen">
   <section>
     <Image
-      src="/images/halvor-bg.jpg"
-      alt="Image of Halvor Teigen"
-      width="1283"
-      height="1762"
+      src={halvorBackgroundImage}
+      alt=""
       class="fixed -z-10 top-0 align-top opacity-20 w-full h-full object-cover object-top"
     />
     <main class="m-auto p-4 max-w-3xl text-white">

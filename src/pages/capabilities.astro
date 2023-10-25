@@ -1,17 +1,16 @@
 ---
 import { Image } from "astro:assets";
-import CapabilityLevels from "../components/CapabilityLevels.astro";
-import H1 from "../components/H1.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+import H1 from "../components/H1.astro";
+import CapabilityLevels from "../components/CapabilityLevels.astro";
+import techLightsBackgroundImage from "../images/tech-lights-bg.jpg";
 ---
 
 <MainLayout title="Capabilities | Halvor Teigen">
   <section>
     <Image
-      src="/images/tech-lights-bg.jpg"
-      alt="Image of abstract tech lights"
-      width=3000
-      height=1358
+      src={techLightsBackgroundImage}
+      alt=""
       class="fixed -z-10 top-0 align-top opacity-20 w-full h-full object-cover"
     />
     <main class="m-auto p-4 max-w-3xl text-white">
