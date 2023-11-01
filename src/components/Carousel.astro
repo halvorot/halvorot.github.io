@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+const certifications = await getCollection("certifications");
+---
+
+<div class="w-full flex flex-row overflow-x-auto">
+    {
+        certifications.map((certificationEntry) => (
+            <div class="w-24 h-24 m-2 flex flex-none items-center justify-center bg-slate-200 rounded-full overflow-hidden">
+                <a href={certificationEntry.data.certificateLink} target="_blank">
+                    <Image src={certificationEntry.data.image} alt={certificationEntry.data.name} />
+                </a>
+            </div>
+        ))
+    }
+</div>
+
+<style>
+div::-webkit-scrollbar{
+    display: none;
+  }
+</style>

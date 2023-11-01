@@ -4,6 +4,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 import H1 from "../components/H1.astro";
 import CapabilityLevels from "../components/CapabilityLevels.astro";
 import techLightsBackgroundImage from "../assets/images/tech-lights-bg.jpg";
+import Carousel from "../components/Carousel.astro";
 ---
 
 <MainLayout title="Capabilities | Halvor Teigen">
@@ -19,6 +20,10 @@ import techLightsBackgroundImage from "../assets/images/tech-lights-bg.jpg";
         knowledge level in my main capabilities
       </h2>
       <CapabilityLevels />
+      <h2 class="text-3xl font-light text-center capitalize mb-12">
+        Certifications
+      </h2> 
+      <Carousel />
     </main>
   </section>
 </MainLayout>
