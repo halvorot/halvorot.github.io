@@ -47,5 +47,7 @@ const certifications = await getCollection("certifications");
         });
     });
 
-    observer.observe(document.querySelector(".cert-wrapper"));
+    document.addEventListener("astro:after-swap", () => {
+        observer.observe(document.querySelector(".cert-wrapper"));
+    });
 </script>
