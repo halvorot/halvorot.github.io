@@ -2,23 +2,26 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 const certifications = await getCollection("certifications");
-
 ---
 
-<div class="w-full flex flex-row overflow-x-auto">
+<div class="w-full flex flex-row overflow-x-auto text-center leading-5 text-slate-200">
     {
-        certifications.map((certificationEntry) => (
-            <div class="w-24 h-24 m-2 flex flex-none items-center justify-center bg-slate-200 rounded-full overflow-hidden">
-                <a href={certificationEntry.data.certificateLink} target="_blank">
-                    <Image src={certificationEntry.data.image} alt={certificationEntry.data.name} />
-                </a>
-            </div>
+        certifications.reverse().map((certificationEntry) => (
+            <a href={certificationEntry.data.certificateLink} target="_blank">
+                <div class="w-24 h-24 m-3 flex flex-none items-center justify-center bg-slate-200 rounded-full overflow-hidden">
+                    <Image
+                        src={certificationEntry.data.image}
+                        alt={certificationEntry.data.name}
+                    />
+                </div>
+                <small>{certificationEntry.data.name}</small>
+            </a>
         ))
     }
 </div>
 
 <style>
-div::-webkit-scrollbar{
-    display: none;
-  }
+    div::-webkit-scrollbar {
+        display: none;
+    }
 </style>
