@@ -4,12 +4,13 @@ interface Props {
   ref: string;
 }
 
-const { text, ref } = Astro.props;
+const { text, ref, ...rest } = Astro.props;
 ---
 
 <button
   type="button"
   class="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-orange-500 dark:hover:bg-orange-600 dark:focus:ring-orange-700"
->
+  {...rest}
+  >
   <a href={ref} target="_blank">{text}</a>
 </button>

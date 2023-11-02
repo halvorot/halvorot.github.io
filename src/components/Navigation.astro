@@ -16,7 +16,7 @@ import navData from "../data/navData";
       >
     </a>
     <div class="flex md:order-2">
-      <PrimaryButton text="Download CV" ref="/halvor-teigen-cv-english.pdf" />
+      <PrimaryButton text="Download CV" ref="/halvor-teigen-cv-english.pdf" aria-label="Download CV" />
       <button
         id="menu-btn"
         data-collapse-toggle="navbar-cta"
@@ -40,7 +40,6 @@ import navData from "../data/navData";
           navData.map((item) => (
             <li class="block py-2 pl-3 pr-4 bg-transparent hover:text-orange-300 md:p-0 text-white">
               <a
-                id={"nav-link-" + item.path.substring(1)}
                 href={item.path}
                 target={
                   item.name.toLowerCase() === "contact" ? "_blank" : "_self"
@@ -64,24 +63,26 @@ import navData from "../data/navData";
 <script>
   const setActiveLinkFunc = () => {
     const navLinks = document.querySelectorAll("nav li a");
+    const currentPath = window.location.href;
 
     navLinks.forEach((link) => {
-      link.removeAttribute("aria-current");
+      if (link instanceof HTMLAnchorElement && link.href === currentPath) {
+        link.setAttribute("aria-current", "page")
+      } else {
+        link.removeAttribute("aria-current")
+      }
     });
-
-    const currentPath = window.location.pathname.substring(1);
-
-    document
-      .getElementById("nav-link-" + currentPath)
-      ?.setAttribute("aria-current", "page");
       
   };
   document.addEventListener("astro:page-load", setActiveLinkFunc);
   document.addEventListener("astro:after-swap", setActiveLinkFunc);
 
+  // Toggle menu hidden when menu button clicked
   document.getElementById("menu-btn")?.addEventListener("click", () => {
     document.getElementById("navbar-cta")?.classList.toggle("hidden");
   });
+
+  // Hide menu on page navigation
   document.addEventListener("astro:after-swap", () => {
     document.getElementById("navbar-cta")?.classList.add("hidden");
   });
