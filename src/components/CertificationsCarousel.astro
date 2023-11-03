@@ -48,6 +48,9 @@ const certifications = await getCollection("certifications");
     });
 
     document.addEventListener("astro:after-swap", () => {
-        observer.observe(document.querySelector(".cert-wrapper"));
+        const certWrapper = document.querySelector(".cert-wrapper");
+        if (certWrapper) {
+            observer.observe(certWrapper);
+        }
     });
 </script>
