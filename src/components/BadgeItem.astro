@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+
+type ImageType = {
+    src: string;
+    width: number;
+    height: number;
+    format: "svg" | "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "avif";
+};
+
+interface Props {
+    href: string;
+    image: ImageType;
+    imageAlt: string;
+    title?: string;
+}
+
+const { href, image, imageAlt, title } = Astro.props;
+---
+
+<a href={href} target="_blank">
+    <div
+        class="inline-flex flex-col items-center justify-center text-center leading-5 text-slate-200"
+    >
+        <div class="w-24 h-24 m-1 bg-slate-200 rounded-full overflow-hidden">
+            <Image src={image} alt={imageAlt} />
+        </div>
+        <small>{title}</small>
+    </div>
+</a>

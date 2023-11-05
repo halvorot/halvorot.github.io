@@ -1,25 +1,20 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+import BadgeItem from "./BadgeItem.astro";
 const certifications = await getCollection("certifications");
 ---
 
 <div class="cert-wrapper w-full inline-flex overflow-x-auto">
     {
         certifications.reverse().map((certificationEntry) => (
-            <div class="cert-item mx-1 text-center leading-5 text-slate-200">
-                <a
+            <div class="cert-item mx-1">
+                <BadgeItem
                     href={certificationEntry.data.certificateLink}
-                    target="_blank"
-                >
-                    <div class="w-24 h-24 mx-1 flex flex-none items-center justify-center bg-slate-200 rounded-full overflow-hidden">
-                        <Image
-                            src={certificationEntry.data.image}
-                            alt={certificationEntry.data.name}
-                        />
-                    </div>
-                    <small>{certificationEntry.data.name}</small>
-                </a>
+                    image={certificationEntry.data.image}
+                    imageAlt={certificationEntry.data.name}
+                    title={certificationEntry.data.name}
+                />
             </div>
         ))
     }
