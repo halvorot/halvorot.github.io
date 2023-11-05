@@ -1,0 +1,32 @@
+---
+import Icon from "astro-icon";
+
+interface Props {
+    text: string;
+    href: string;
+    iconName?: string;
+    iconPosition?: "left" | "right";
+    classes?: string;
+}
+
+const { text, href, iconName, iconPosition, classes } = Astro.props;
+---
+
+<button
+    type="button"
+    class={`text-orange-300 px-2 py-1 rounded-md bg-black bg-opacity-60 ${classes}`}
+>
+    <a href={href} aria-label={text} class="inline-flex items-center">
+        {
+            iconName && iconPosition === "left" && (
+                <Icon name={iconName} class="w-5 text-slate-200" />
+            )
+        }
+        {text}
+        {
+            iconName && iconPosition === "right" && (
+                <Icon name={iconName} class="w-5 text-slate-200" />
+            )
+        }
+    </a>
+</button>

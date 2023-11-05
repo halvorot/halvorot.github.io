@@ -5,6 +5,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 import H1 from "../components/H1.astro";
 import halvorBackgroundImage from "../assets/images/halvor-bg.jpg";
 import H2 from "../components/H2.astro";
+import SecondaryButton from "../components/SecondaryButton.astro";
 ---
 
 <MainLayout title="Halvor Teigen">
@@ -43,11 +44,18 @@ import H2 from "../components/H2.astro";
           > mentality, I see every project as an opportunity to further develop
           my skills and knowledge. I am dedicated to producing work that I am
           proud of, and I strive to deliver the best <strong>quality</strong>
-          possible. I value collaboration and believe that teamwork and <strong
+           possible. I value collaboration and believe that teamwork and <strong
             >knowledge sharing</strong
           > is the key to success.
         </p>
       </div>
+      <SecondaryButton
+        text="Capabilities"
+        href="/capabilities"
+        classes="md:hidden float-right"
+        iconName="bi:chevron-right"
+        iconPosition="right"
+      />
     </main>
   </section>
 </MainLayout>

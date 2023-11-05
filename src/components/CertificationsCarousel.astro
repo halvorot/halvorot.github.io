@@ -5,7 +5,7 @@ import BadgeItem from "./BadgeItem.astro";
 const certifications = await getCollection("certifications");
 ---
 
-<div class="cert-wrapper w-full inline-flex overflow-x-auto">
+<div class="cert-wrapper mb-10 w-full inline-flex overflow-x-auto">
     {
         certifications.reverse().map((certificationEntry) => (
             <div class="cert-item mx-1">

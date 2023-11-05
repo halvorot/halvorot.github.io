@@ -8,6 +8,7 @@ import ExperienceItem from "../components/ExperienceItem.astro";
 import BadgeItem from "../components/BadgeItem.astro";
 import snowyMountainsBackgroundImage from "../assets/images/snowy-mountains-bg.jpg";
 import wishlyLogo from "../assets/images/wishly-logo.png";
+import hLogo from "../icons/h-logo.svg";
 
 const experiences = await getCollection("experience");
 
@@ -62,12 +63,19 @@ const orderedExperiences = [...experiences].sort((a, b) =>
         }
       </div>
       <H2 text="Personal projects" />
-      <div class="flex justify-center">
+      <div class="flex justify-evenly">
         <BadgeItem
           href="https://github.com/halvorot/wishly-wishlist-app/tree/main"
           image={wishlyLogo}
           imageAlt="Wishly logo"
           title="Wishly - The Wishlist App"
+        />
+        <BadgeItem
+          href="https://github.com/halvorot/halvorot.github.io"
+          image={hLogo}
+          imageAlt="Halvor Teigen logo"
+          title="This website"
+          badgeBackgroundClass="bg-black"
         />
       </div>
     </main>

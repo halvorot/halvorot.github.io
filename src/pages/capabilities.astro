@@ -6,6 +6,7 @@ import CapabilityLevels from "../components/CapabilityLevels.astro";
 import techLightsBackgroundImage from "../assets/images/tech-lights-bg.jpg";
 import CertificationsCarousel from "../components/CertificationsCarousel.astro";
 import H2 from "../components/H2.astro";
+import SecondaryButton from "../components/SecondaryButton.astro";
 ---
 
 <MainLayout title="Capabilities | Halvor Teigen">
@@ -21,6 +22,13 @@ import H2 from "../components/H2.astro";
       <CapabilityLevels />
       <H2 text="Certifications" classes="mt-20" />
       <CertificationsCarousel />
+      <SecondaryButton
+        text="Experience"
+        href="/experience"
+        classes="md:hidden float-right"
+        iconName="bi:chevron-right"
+        iconPosition="right"
+      />
     </main>
   </section>
 </MainLayout>
