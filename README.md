@@ -1,14 +1,5 @@
 # Halvor Teigen Resume Website
 
-## 🧞 Commands
+This project was implemented because I was curious about the frontend framework Astro and wanted to learn more about it. I figured a resume website was a good place to start.
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+In addition to being a learning project, the website presents me as a software engineer and lists some of my experiences and capabilities.
