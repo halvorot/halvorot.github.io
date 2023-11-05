@@ -4,17 +4,20 @@ import Icon from "astro-icon";
 interface Props {
     text: string;
     href: string;
+    ariaLabel: string;
     iconName?: string;
     iconPosition?: "left" | "right";
     classes?: string;
 }
 
-const { text, href, iconName, iconPosition, classes } = Astro.props;
+const { text, href, ariaLabel, iconName, iconPosition, classes, ...rest} = Astro.props;
 ---
 
 <button
     type="button"
     class={`text-orange-300 px-2 py-1 rounded-md bg-black bg-opacity-60 ${classes}`}
+    aria-label={ariaLabel}
+    {...rest}
 >
     <a href={href} aria-label={text} class="inline-flex items-center">
         {
