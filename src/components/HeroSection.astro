@@ -35,7 +35,7 @@ const halvorBackgroundImageCss = `url(${optimizedHalvorBackgroundImage.src})`;
     </div>
     <div
       id="ingress-box"
-      class="bg-black text-center rounded-xl flex flex-col items-center justify-center mb-24 mt-10 py-12 px-3 md:mt-12 md:p-16"
+      class="bg-neutral-950 text-center rounded-xl flex flex-col items-center justify-center mb-24 mt-10 py-12 px-3 md:mt-12 md:p-16"
     >
       <Icon name="h-logo" class="w-20 mb-10" alt="Halvor Teigen Logo" />
       <p class="ingress">
@@ -49,14 +49,6 @@ const halvorBackgroundImageCss = `url(${optimizedHalvorBackgroundImage.src})`;
         > is the key to success.
       </p>
     </div>
-    <SecondaryButton
-      text="Capabilities"
-      href="/capabilities"
-      ariaLabel="Navigate to capabilities page"
-      classes="md:hidden float-right"
-      iconName="bi:chevron-right"
-      iconPosition="right"
-    />
   </main>
 </section>
 
@@ -73,9 +65,10 @@ const halvorBackgroundImageCss = `url(${optimizedHalvorBackgroundImage.src})`;
     content: "";
     position: absolute;
     z-index: -10;
-    top: -100px;
+    top: 0;
     width: 100%;
-    height: calc(100% + 100px);
+    height: 100%;
+    background-position: center;
     background-image: var(--halvorBackgroundImageCss);
     background-size: cover; /* Adjust as needed */
     opacity: 0.2; /* Adjust the opacity as needed (0.0 to 1.0) */
