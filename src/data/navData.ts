@@ -1,4 +1,9 @@
-const navData = [
+interface NavData {
+    name: string;
+    path: string
+}
+
+const navData: NavData[] = [
     {
         name: "Home",
         path: "/"
