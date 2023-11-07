@@ -10,11 +10,11 @@ const navData: NavData[] = [
     },
     {
         name: "Capabilities",
-        path: "/capabilities"
+        path: "#capabilities"
     },
     {
         name: "Experience",
-        path: "/experience"
+        path: "#experience"
     },
     {
         name: "Contact",
