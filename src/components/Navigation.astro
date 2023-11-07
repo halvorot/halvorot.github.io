@@ -61,6 +61,7 @@ import navData from "../data/navData";
                 target={
                   item.name.toLowerCase() === "contact" ? "_blank" : "_self"
                 }
+                aria-current={item.name.toLowerCase() === "home" && "page"}
               >
                 {item.name}
               </a>
@@ -79,29 +80,16 @@ import navData from "../data/navData";
 </style>
 
 <script>
-  const setActiveLinkFunc = () => {
-    const navLinks = document.querySelectorAll("nav li a");
-    const currentPath = window.location.href;
-
-    navLinks.forEach((link) => {
-      if (link instanceof HTMLAnchorElement && link.href === currentPath) {
-        link.setAttribute("aria-current", "page");
-      } else {
-        link.removeAttribute("aria-current");
-      }
-    });
-  };
-  document.addEventListener("astro:page-load", setActiveLinkFunc);
-  document.addEventListener("astro:after-swap", setActiveLinkFunc);
-
   // Toggle menu hidden when menu button clicked
   document.getElementById("menu-btn")?.addEventListener("click", () => {
     document.getElementById("navbar-cta")?.classList.toggle("hidden");
   });
 
-  // Hide menu on page navigation
-  document.addEventListener("astro:after-swap", () => {
-    document.getElementById("navbar-cta")?.classList.add("hidden");
-  });
-
+  // Toggle menu hidden when menu button clicked
+  const navLinks = document.querySelectorAll("nav a");
+  navLinks.forEach((navLink) =>
+    navLink.addEventListener("click", () => {
+      document.getElementById("navbar-cta")?.classList.toggle("hidden");
+    })
+  );
 </script>
