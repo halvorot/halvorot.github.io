@@ -1,77 +1,12 @@
 ---
-import { Image } from "astro:assets";
-import { Icon } from "astro-icon";
 import MainLayout from "../layouts/MainLayout.astro";
-import H1 from "../components/H1.astro";
-import halvorBackgroundImage from "../assets/images/halvor-bg.jpg";
-import H2 from "../components/H2.astro";
-import SecondaryButton from "../components/SecondaryButton.astro";
+import HeroSection from "../components/HeroSection.astro";
+import CapabilitiesSection from "../components/CapabilitiesSection.astro";
+import ExperienceSection from "../components/ExperienceSection.astro";
 ---
 
 <MainLayout title="Halvor Teigen">
-  <section>
-    <Image
-      src={halvorBackgroundImage}
-      alt=""
-      class="fixed -z-10 top-0 align-top opacity-20 w-full h-full object-cover object-top"
-    />
-    <main class="m-auto p-4 max-w-3xl text-white">
-      <div class="flex flex-col items-center">
-        <H1 preText="Hi, I'm " gradientText="Halvor Teigen" />
-        <H2 text="Backend developer & DevOps enthusiast" />
-        <button
-          type="button"
-          class="animate-pulse"
-          aria-hidden="true"
-          onclick="
-          document.getElementById('ingress-box').scrollIntoView({
-            behavior: 'auto',
-            block: 'center',
-            inline: 'center'
-          });
-          "
-        >
-          <Icon name="bi:chevron-compact-down" class="w-10" />
-        </button>
-      </div>
-      <div
-        id="ingress-box"
-        class="bg-black text-center rounded-xl flex flex-col items-center justify-center mb-24 mt-10 py-12 px-3 md:mt-12 md:p-16"
-      >
-        <Icon name="h-logo" class="w-20 mb-10" alt="Halvor Teigen Logo" />
-        <p class="ingress">
-          As a software engineer with the <strong
-            >everything-can-be-learned</strong
-          > mentality, I see every project as an opportunity to further develop
-          my skills and knowledge. I am dedicated to producing work that I am
-          proud of, and I strive to deliver the best <strong>quality</strong>
-           possible. I value collaboration and believe that teamwork and <strong
-            >knowledge sharing</strong
-          > is the key to success.
-        </p>
-      </div>
-      <SecondaryButton
-        text="Capabilities"
-        href="/capabilities"
-        ariaLabel="Navigate to capabilities page"
-        classes="md:hidden float-right"
-        iconName="bi:chevron-right"
-        iconPosition="right"
-      />
-    </main>
-  </section>
+  <HeroSection />
+  <CapabilitiesSection />
+  <ExperienceSection />
 </MainLayout>
-
-<style>
-  .ingress code {
-    font-size: 0.8em;
-    font-weight: bold;
-    background: rgba(var(--accent-light), 12%);
-    color: rgb(var(--accent-light));
-    border-radius: 4px;
-    padding: 0.3em 0.4em;
-  }
-  .ingress strong {
-    @apply text-orange-300 opacity-80;
-  }
-</style>

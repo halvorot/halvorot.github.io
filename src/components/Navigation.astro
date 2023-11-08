@@ -5,16 +5,19 @@ import { Icon } from "astro-icon";
 import navData from "../data/navData";
 ---
 
-<nav class="bg-black bg-opacity-30" transition:persist>
+<nav
+  class="absolute z-50 w-full bg-neutral-950 bg-opacity-40"
+  transition:persist
+>
   <div
     class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
   >
-    <a href="/" class="flex items-center" aria-label="Go Home">
+    <div class="flex items-center">
       <Icon name="h-logo" class="w-10 mr-3" alt="Halvor Teigen Logo" />
       <span class="hidden xs:block text-2xl font-semibold text-white capitalize"
         >Halvor Teigen</span
       >
-    </a>
+    </div>
     <div class="flex md:order-2">
       <PrimaryButton
         text="Download CV"
@@ -61,6 +64,7 @@ import navData from "../data/navData";
                 target={
                   item.name.toLowerCase() === "contact" ? "_blank" : "_self"
                 }
+                aria-current={item.name.toLowerCase() === "home" && "page"}
               >
                 {item.name}
               </a>
@@ -79,28 +83,20 @@ import navData from "../data/navData";
 </style>
 
 <script>
-  const setActiveLinkFunc = () => {
-    const navLinks = document.querySelectorAll("nav li a");
-    const currentPath = window.location.href;
-
-    navLinks.forEach((link) => {
-      if (link instanceof HTMLAnchorElement && link.href === currentPath) {
-        link.setAttribute("aria-current", "page");
-      } else {
-        link.removeAttribute("aria-current");
-      }
-    });
-  };
-  document.addEventListener("astro:page-load", setActiveLinkFunc);
-  document.addEventListener("astro:after-swap", setActiveLinkFunc);
-
   // Toggle menu hidden when menu button clicked
   document.getElementById("menu-btn")?.addEventListener("click", () => {
     document.getElementById("navbar-cta")?.classList.toggle("hidden");
+    document.querySelector("nav")?.classList.toggle("bg-opacity-40");
   });
 
-  // Hide menu on page navigation
-  document.addEventListener("astro:after-swap", () => {
-    document.getElementById("navbar-cta")?.classList.add("hidden");
+  // Toggle menu hidden when menu button clicked
+  const navLinks = document.querySelectorAll("nav a");
+  navLinks.forEach((navLink) => {
+    navLink.addEventListener("click", () => {
+      if (document.getElementById("menu-btn")?.checkVisibility()) {
+        document.getElementById("navbar-cta")?.classList.toggle("hidden");
+        document.querySelector("nav")?.classList.toggle("bg-opacity-40");
+      }
+    });
   });
 </script>
