@@ -1,23 +1,46 @@
 ---
+import TagTile from "./TagTile.astro";
 interface Props {
-    startDate: Date;
-    endDate?: Date;
-    heading: string;
-    subHeading: string;
-    description: string;
-    tags?: string[];
-    align?: "left" | "right";
-    classes?: string;
+  startDate: Date;
+  endDate?: Date;
+  heading: string;
+  subHeading: string;
+  description: string;
+  tags?: string[];
+  align?: "left" | "right";
+  classes?: string;
 }
 
-const { startDate, endDate, heading, subHeading, description, tags, align="left", classes } = Astro.props;
+const {
+  startDate,
+  endDate,
+  heading,
+  subHeading,
+  description,
+  tags,
+  align = "left",
+  classes,
+} = Astro.props;
 ---
 
-<div class={`mb-10 ${align === "left" ? "text-left" : "text-right"} ${classes}`}>
-    <p class="text-orange-500 font-bold text-lg leading-6">{startDate.getFullYear()}-{endDate?.getFullYear()}</p>
-    <h3 class="text-slate-200 font-light text-2xl mb-3">{heading}</h3>
-    <h4 class="text-slate-200 font-medium text-lg">{subHeading}</h4>
-    <p class="text-orange-300 text-base">
-        {description}{tags && (`Tags: ${tags.join(", ")}.`)}
-    </p>
+<div
+  class={`mb-10 ${align === "left" ? "text-left" : "text-right"}  ${classes}`}
+>
+  <p class="text-orange-500 font-bold text-lg leading-6">
+    {startDate.getFullYear()}-{endDate?.getFullYear()}
+  </p>
+  <h3 class="text-slate-200 font-light text-2xl mb-3">{heading}</h3>
+  <h4 class="text-slate-200 font-medium text-lg">{subHeading}</h4>
+  <p class="text-orange-300 text-base">
+    {description}
+  </p>
+  {
+    tags && (
+      <div class={`inline-flex items-center flex-wrap gap-1 mt-2 ${align === "left" ? "justify-start" : "justify-end"}`}>
+        {tags?.map((tag) => (
+          <TagTile text={tag} />
+        ))}
+      </div>
+    )
+  }
 </div>
