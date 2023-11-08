@@ -5,7 +5,10 @@ import { Icon } from "astro-icon";
 import navData from "../data/navData";
 ---
 
-<nav class="z-50 w-full bg-neutral-950" transition:persist>
+<nav
+  class="absolute z-50 w-full bg-neutral-950 bg-opacity-40"
+  transition:persist
+>
   <div
     class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
   >
@@ -80,16 +83,29 @@ import navData from "../data/navData";
 </style>
 
 <script>
+  function toggleNavOpacity() {
+    const navElement = document.querySelector("nav");
+    if (navElement?.classList.contains("bg-opacity-40")) {
+      navElement?.classList.replace("bg-opacity-40", "bg-opacity-100");
+    } else if (navElement?.classList.contains("bg-opacity-100")) {
+      navElement?.classList.replace("bg-opacity-100", "bg-opacity-40");
+    }
+  }
+
   // Toggle menu hidden when menu button clicked
   document.getElementById("menu-btn")?.addEventListener("click", () => {
     document.getElementById("navbar-cta")?.classList.toggle("hidden");
   });
+  document
+    .getElementById("menu-btn")
+    ?.addEventListener("click", toggleNavOpacity);
 
   // Toggle menu hidden when menu button clicked
   const navLinks = document.querySelectorAll("nav a");
-  navLinks.forEach((navLink) =>
+  navLinks.forEach((navLink) => {
     navLink.addEventListener("click", () => {
       document.getElementById("navbar-cta")?.classList.toggle("hidden");
-    })
-  );
+    });
+    navLink.addEventListener("click", toggleNavOpacity);
+  });
 </script>
