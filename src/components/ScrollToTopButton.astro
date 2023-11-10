@@ -23,15 +23,19 @@ import Icon from "astro-icon";
       }
     }
 
-    if (
-      document.documentElement.scrollTop + window.innerHeight >
-      document.documentElement.scrollHeight - 95
-    ) {
-      scrollToTopButton?.classList.replace("bottom-5", "bottom-28")
-      scrollToTopButton?.classList.replace("fixed", "absolute")
-    } else {
-      scrollToTopButton?.classList.replace("bottom-28", "bottom-5")
-      scrollToTopButton?.classList.replace("absolute", "fixed")
+    const footer = document.querySelector("footer");
+    if (footer) {
+      const rect = footer?.getBoundingClientRect();
+      const footerIsInViewPort =
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight)
+
+      if (footerIsInViewPort) {
+        scrollToTopButton?.classList.replace("bottom-5", "bottom-28");
+        scrollToTopButton?.classList.replace("fixed", "absolute");
+      } else {
+        scrollToTopButton?.classList.replace("bottom-28", "bottom-5");
+        scrollToTopButton?.classList.replace("absolute", "fixed");
+      }
     }
   });
 
