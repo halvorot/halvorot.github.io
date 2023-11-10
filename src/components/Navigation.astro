@@ -80,19 +80,23 @@ import navData from "../data/navData";
 </style>
 
 <script>
+  const menuButton = document.getElementById("menu-btn");
+  const navBarLinksDropdown = document.getElementById("navbar-cta");
+  const navBar = document.querySelector("nav");
   // Toggle menu hidden when menu button clicked
-  document.getElementById("menu-btn")?.addEventListener("click", () => {
-    document.getElementById("navbar-cta")?.classList.toggle("hidden");
-    document.querySelector("nav")?.classList.toggle("bg-opacity-40");
+  menuButton?.addEventListener("click", () => {
+    navBarLinksDropdown?.classList.toggle("hidden");
+    navBar?.classList.toggle("bg-opacity-40");
   });
 
   // Toggle menu hidden when menu button clicked
   const navLinks = document.querySelectorAll("nav a");
   navLinks.forEach((navLink) => {
     navLink.addEventListener("click", () => {
-      if (document.getElementById("menu-btn")?.checkVisibility()) {
-        document.getElementById("navbar-cta")?.classList.toggle("hidden");
-        document.querySelector("nav")?.classList.toggle("bg-opacity-40");
+      const styles = menuButton && getComputedStyle(menuButton)
+      if (styles?.display !== 'none') {
+        navBarLinksDropdown?.classList.toggle("hidden");
+        navBar?.classList.toggle("bg-opacity-40");
       }
     });
   });
