@@ -1,0 +1,44 @@
+---
+import Icon from "astro-icon";
+---
+
+<button
+  id="scroll-to-top-button"
+  type="button"
+  aria-label="Scroll to top"
+  class="fixed bottom-5 right-5 z-50 p-2 bg-neutral-950 bg-opacity-40 rounded-lg"
+>
+  <Icon name="bi:chevron-up" class="w-5 text-slate-200" />
+</button>
+
+<script>
+  const scrollToTopButton = document.getElementById("scroll-to-top-button");
+
+  document.addEventListener("scroll", () => {
+    if (document.documentElement.scrollTop >= window.innerHeight) {
+      scrollToTopButton?.classList.remove("hidden");
+    } else {
+      if (!scrollToTopButton?.classList.contains("hidden")) {
+        scrollToTopButton?.classList.add("hidden");
+      }
+    }
+
+    if (
+      document.documentElement.scrollTop + window.innerHeight >
+      document.documentElement.scrollHeight - 95
+    ) {
+      scrollToTopButton?.classList.replace("bottom-5", "bottom-28")
+      scrollToTopButton?.classList.replace("fixed", "absolute")
+    } else {
+      scrollToTopButton?.classList.replace("bottom-28", "bottom-5")
+      scrollToTopButton?.classList.replace("absolute", "fixed")
+    }
+  });
+
+  scrollToTopButton?.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+</script>
