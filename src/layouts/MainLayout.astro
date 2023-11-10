@@ -1,52 +1,84 @@
 ---
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
+import { SEO } from "astro-seo";
+import { getImage } from "astro:assets";
+import ogImage from "../assets/images/og-image.jpg";
 
 interface Props {
-	title: string;
+  title: string;
 }
 const { title } = Astro.props;
+
+const optimizedOgImage = await getImage({
+  src: ogImage,
+});
+
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Halvor Teigens Resume Website" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-		<title>{title}</title>
-	</head>
-	<body class="mx-auto max-w-screen-2xl">
-		<Navigation />
-		<slot />
-		<Footer />
-	</body>
-	
-<style is:global>
-	html {
-		font-family: system-ui, sans-serif;
-		background: #111724;
-		background-size: 224px;
-		scroll-behavior: smooth;
-	}
-	body {
-		position: relative;
-		margin: 0px;
-		min-height: 100vh;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Halvor Teigens Resume Website" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <title>{title}</title>
+    <SEO
+      title={title}
+      description="Halvor Teigens CV Website"
+      openGraph={{
+        basic: {
+          title: "Halvor Teigen",
+          type: "website",
+          image: `${optimizedOgImage.src}`,
+        },
+      }}
+      extend={{
+        // extending the default link tags
+        link: [{ rel: "icon", href: "/favicon.ico" }],
+        // extending the default meta tags
+        meta: [
+          {
+            name: "twitter:image",
+            content:
+              "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
+          },
+          { name: "twitter:title", content: "Tinker Tailor Soldier Spy" },
+          { name: "twitter:description", content: "Agent" },
+        ],
+      }}
+    />
+  </head>
+  <body class="mx-auto max-w-screen-2xl">
+    <Navigation />
+    <slot />
+    <Footer />
+    <style is:global>
+      html {
+        font-family: system-ui, sans-serif;
+        background: #111724;
+        background-size: 224px;
+        scroll-behavior: smooth;
+      }
+      body {
+        position: relative;
+        margin: 0px;
+        min-height: 100vh;
+      }
+      code {
+        font-family:
+          Menlo,
+          Monaco,
+          Lucida Console,
+          Liberation Mono,
+          DejaVu Sans Mono,
+          Bitstream Vera Sans Mono,
+          Courier New,
+          monospace;
+      }
+    </style>
+  </body>
 </html>
