@@ -1,7 +1,6 @@
 ---
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
-import { SEO } from "astro-seo";
 import { getImage } from "astro:assets";
 import ogImage from "../assets/images/og-image.jpg";
 
@@ -9,6 +8,7 @@ interface Props {
   title: string;
 }
 const { title } = Astro.props;
+const description = "Halvor Teigens Resume Website";
 
 const optimizedOgImage = await getImage({
   src: ogImage,
@@ -18,35 +18,28 @@ const optimizedOgImage = await getImage({
 <!doctype html>
 <html lang="en">
   <head>
+	  <!-- HTML Meta Tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <SEO
-      title={title}
-      description="Halvor Teigens CV Website"
-      openGraph={{
-        basic: {
-          title: "Halvor Teigen",
-          type: "website",
-          image: `${optimizedOgImage.src}`,
-        },
-      }}
-      extend={{
-        // extending the default link tags
-        link: [
-          { rel: "icon", type: "image/svg+xml", href: "/favicon.ico" },
-          { rel: "sitemap", href: "/sitemap-index.xml" },
-        ],
-        // extending the default meta tags
-        meta: [
-          {
-            name: "generator",
-            content: `${Astro.generator}`
-          },
-          { name: "twitter:title", content: "Halvor Teigen" },
-          { name: "twitter:description", content: "Halvor Teigens resume website" },
-        ],
-      }}
-    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content={import.meta.env.SITE} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={optimizedOgImage.src} />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_medium_image" />
+    <meta property="twitter:url" content={import.meta.env.SITE} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={optimizedOgImage.src} />
   </head>
   <body class="mx-auto max-w-screen-2xl">
     <Navigation />
