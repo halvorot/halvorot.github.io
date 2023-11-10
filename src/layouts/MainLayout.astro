@@ -13,7 +13,6 @@ const { title } = Astro.props;
 const optimizedOgImage = await getImage({
   src: ogImage,
 });
-
 ---
 
 <!doctype html>
@@ -21,9 +20,6 @@ const optimizedOgImage = await getImage({
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="sitemap" href="/sitemap-index.xml" />
     <SEO
       title={title}
       description="Halvor Teigens CV Website"
@@ -36,16 +32,18 @@ const optimizedOgImage = await getImage({
       }}
       extend={{
         // extending the default link tags
-        link: [{ rel: "icon", href: "/favicon.ico" }],
+        link: [
+          { rel: "icon", type: "image/svg+xml", href: "/favicon.ico" },
+          { rel: "sitemap", href: "/sitemap-index.xml" },
+        ],
         // extending the default meta tags
         meta: [
           {
-            name: "twitter:image",
-            content:
-              "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
+            name: "generator",
+            content: `${Astro.generator}`
           },
-          { name: "twitter:title", content: "Tinker Tailor Soldier Spy" },
-          { name: "twitter:description", content: "Agent" },
+          { name: "twitter:title", content: "Halvor Teigen" },
+          { name: "twitter:description", content: "Halvor Teigens resume website" },
         ],
       }}
     />
