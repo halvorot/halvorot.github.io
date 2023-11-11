@@ -58,18 +58,19 @@ const CookieConsent: Component = () => {
           </p>
 
           <div class="mx-auto">
+          <button
+              class="text-sm mr-2 rounded-md bg-transparent px-4 py-2 text-slate-200 transition hover:bg-neutral-900"
+              onClick={handleDecline}
+            >
+              Decline
+            </button>
             <button
               class="font-medium rounded-lg px-4 py-2 text-center mr-3 text-slate-200 transition bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-800"
               onClick={handleAccept}
             >
               Accept
             </button>
-            <button
-              class="ml-2 rounded-md bg-neutral-800 px-4 py-2 text-slate-200 transition hover:bg-neutral-900"
-              onClick={handleDecline}
-            >
-              Decline
-            </button>
+            
           </div>
         </div>
       </div>
