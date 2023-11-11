@@ -1,46 +1,17 @@
 ---
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
-import { getImage } from "astro:assets";
-import ogImage from "../assets/images/og-image.jpg";
+import CommonHead from "../components/CommonHead.astro";
 
 interface Props {
   title: string;
 }
 const { title } = Astro.props;
-const description = "Halvor Teigens Resume Website";
-
-const optimizedOgImage = await getImage({
-  src: ogImage,
-});
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-	  <!-- HTML Meta Tags -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-
-    <!-- Facebook Meta Tags -->
-    <meta property="og:url" content={import.meta.env.SITE} />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={optimizedOgImage.src} />
-
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={import.meta.env.SITE} />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={optimizedOgImage.src} />
-  </head>
+  <CommonHead title={title}/>
   <body class="mx-auto max-w-screen-2xl">
     <Navigation />
     <slot />
