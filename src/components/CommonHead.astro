@@ -14,29 +14,6 @@ const optimizedOgImage = await getImage({
 ---
 
 <head>
-    <!-- HTML Meta Tags -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <title>{title}</title>
-  <meta name="description" content={description} />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="generator" content={Astro.generator} />
-  <link rel="sitemap" href="/sitemap-index.xml" />
-
-  <!-- Facebook Meta Tags -->
-  <meta property="og:url" content={import.meta.env.SITE} />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:image" content={optimizedOgImage.src} />
-
-  <!-- Twitter Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content={import.meta.env.SITE} />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={optimizedOgImage.src} />
-
   <!-- Google tag (gtag.js) -->
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
@@ -106,4 +83,27 @@ const optimizedOgImage = await getImage({
     })(window, document, "script", "dataLayer", "GTM-5QF23X8M");
   </script>
   <!-- End Google Tag Manager -->
+
+  <!-- HTML Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content={import.meta.env.SITE} />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={optimizedOgImage.src} />
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={import.meta.env.SITE} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={optimizedOgImage.src} />
 </head>
