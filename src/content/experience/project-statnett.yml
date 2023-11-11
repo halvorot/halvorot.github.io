@@ -1,5 +1,7 @@
 startDate: 2022-08-15
 heading: Statnett - project
 subHeading: Backend Developer & Team Lead
-description: Development of tools and applications for implementing automated integration testing in CI/CD pipelines and simulation of external data sources in test environments.
-tags: ["Java", "Kafka", "GitLab CI/CD", "Ansible", "OpenShift", "Spring Boot"]
+description: >
+    Part of an enablement team developing tools for implementing automated integration testing on Kubernetes and simulation of data streams in test environments.
+    The solutions are designed to be used by all development teams in Statnett.
+tags: ["Java", "Spring Boot", "Kafka", "GitLab CI/CD", "Ansible", "Kubernetes"]
