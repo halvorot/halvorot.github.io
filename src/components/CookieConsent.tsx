@@ -1,5 +1,5 @@
 import { createSignal, createEffect, Show } from "solid-js";
-import type {Component} from "solid-js";
+import type { Component } from "solid-js";
 
 // tell typescript that this function is defined in the global scope
 declare function consentGranted(): void;
@@ -58,7 +58,7 @@ const CookieConsent: Component = () => {
           </p>
 
           <div class="mx-auto">
-          <button
+            <button
               class="text-sm mr-2 rounded-md bg-transparent px-4 py-2 text-slate-200 transition hover:bg-neutral-900"
               onClick={handleDecline}
             >
@@ -70,7 +70,6 @@ const CookieConsent: Component = () => {
             >
               Accept
             </button>
-            
           </div>
         </div>
       </div>
