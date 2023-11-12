@@ -5,10 +5,10 @@ import BadgeItem from "./BadgeItem.astro";
 const certifications = await getCollection("certifications");
 ---
 
-<div class="cert-wrapper mb-14 inline-flex w-full overflow-x-auto">
+<div class="mb-14 inline-flex w-full overflow-x-auto">
   {
     certifications.map((certificationEntry) => (
-      <div class="cert-item mx-1">
+      <div class="mx-1">
         <BadgeItem
           href={certificationEntry.data.certificateLink}
           image={certificationEntry.data.image}
@@ -22,30 +22,9 @@ const certifications = await getCollection("certifications");
 
 <style>
   div::-webkit-scrollbar {
-    display: none;
+    @apply h-1
   }
-</style>
-
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      const certItems = entry.target.querySelectorAll(".cert-item");
-      certItems.forEach((certItem) => {
-        if (entry.isIntersecting) {
-          certItem?.classList.add("animate-bounce-left");
-          return; // if we added the class, exit the function
-        }
-
-        // We're not intersecting, so remove the class!
-        certItem?.classList.remove("animate-bounce-left");
-      });
-    });
-  });
-
-  document.addEventListener("astro:after-swap", () => {
-    const certWrapper = document.querySelector(".cert-wrapper");
-    if (certWrapper) {
-      observer.observe(certWrapper);
+  div::-webkit-scrollbar-thumb {
+    @apply rounded-md bg-light-accent/50
     }
-  });
-</script>
+</style>
