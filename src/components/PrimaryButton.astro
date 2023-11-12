@@ -10,9 +10,9 @@ const { text, href, ariaLabel, ...rest } = Astro.props;
 
 <button
   type="button"
-  class="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-700 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0"
+  class="text-white bg-orange-500 hover:bg-orange-600 focus:ring-orange-700 mr-3 rounded-lg px-4 py-2 text-center text-sm font-medium focus:outline-none focus:ring-4 md:mr-0"
   aria-label={ariaLabel}
   {...rest}
-  >
+>
   <a href={href} target="_blank">{text}</a>
 </button>

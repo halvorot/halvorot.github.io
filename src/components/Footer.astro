@@ -1,21 +1,25 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from "astro-icon";
 ---
 
-<footer class="bg-black bg-opacity-80 sticky top-[100vh]">
+<footer class="bg-black sticky top-[100vh] bg-opacity-80">
   <div
-    class="p-4 py-4 mx-auto w-full max-w-screen-xl flex flex-col items-center justify-center text-center sm:flex-row sm:text-left sm:justify-between"
+    class="mx-auto flex w-full max-w-screen-xl flex-col items-center justify-center p-4 py-4 text-center sm:flex-row sm:justify-between sm:text-left"
   >
     <div class="text-white text-xs md:text-sm">
-      <p>Developed by Halvor Teigen using <a
-        class="underline"
-        href="https://astro.build/"
-        target="_blank"
-        >Astro<Icon name="bi:box-arrow-up-right" class="w-2 md:w-3 inline align-super"/></a
-      ></p>
+      <p>
+        Developed by Halvor Teigen using <a
+          class="underline"
+          href="https://astro.build/"
+          target="_blank"
+          >Astro<Icon
+            name="bi:box-arrow-up-right"
+            class="inline w-2 align-super md:w-3"
+          /></a>
+      </p>
       <p>This site is currently a work in progress</p>
     </div>
-    <div class="flex items-center mt-4 space-x-5 sm:mt-0">
+    <div class="mt-4 flex items-center space-x-5 sm:mt-0">
       <a
         href="https://www.linkedin.com/in/halvor-teigen/"
         target="_blank"

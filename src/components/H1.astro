@@ -7,6 +7,10 @@ interface Props {
 const { preText, gradientText } = Astro.props;
 ---
 
-<h1 class="text-6xl leading-tight font-bold text-center mt-20 mb-20">
-  {preText} <span class="bg-gradient-to-r from-orange-500 from-10% to-orange-400 bg-clip-text text-transparent">{gradientText}</span>
+<h1 class="mb-20 mt-20 text-center text-6xl font-bold leading-tight">
+  {preText}
+  <span
+    class="from-orange-500 to-orange-400 text-transparent bg-gradient-to-r from-10% bg-clip-text"
+    >{gradientText}</span
+  >
 </h1>

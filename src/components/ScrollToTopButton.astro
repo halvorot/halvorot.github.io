@@ -6,9 +6,9 @@ import Icon from "astro-icon";
   id="scroll-to-top-button"
   type="button"
   aria-label="Scroll to top"
-  class="hidden fixed bottom-5 right-5 z-50 p-2 bg-neutral-950 bg-opacity-40 rounded-lg"
+  class="bg-neutral-950 fixed bottom-5 right-5 z-50 hidden rounded-lg bg-opacity-40 p-2"
 >
-  <Icon name="bi:chevron-up" class="w-5 text-slate-200" />
+  <Icon name="bi:chevron-up" class="text-slate-200 w-5" />
 </button>
 
 <script>
@@ -27,11 +27,11 @@ import Icon from "astro-icon";
       document.documentElement.scrollTop + window.innerHeight >
       document.documentElement.scrollHeight - 95
     ) {
-      scrollToTopButton?.classList.replace("bottom-5", "bottom-28")
-      scrollToTopButton?.classList.replace("fixed", "absolute")
+      scrollToTopButton?.classList.replace("bottom-5", "bottom-28");
+      scrollToTopButton?.classList.replace("fixed", "absolute");
     } else {
-      scrollToTopButton?.classList.replace("bottom-28", "bottom-5")
-      scrollToTopButton?.classList.replace("absolute", "fixed")
+      scrollToTopButton?.classList.replace("bottom-28", "bottom-5");
+      scrollToTopButton?.classList.replace("absolute", "fixed");
     }
   });
 
