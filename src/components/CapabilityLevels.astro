@@ -36,11 +36,11 @@ const capabilities: Capability[] = [
   {
     capabilities.map((capability) => (
       <tr class="h-12 w-full">
-        <td class="text-orange-300 text-right">
+        <td class="text-secondary text-right">
           <p class="mr-5">{capability.name}</p>
         </td>
         <td class="w-full">
-          <div class={`bg-orange-500 h-3 ${capability.levelClass}`} />
+          <div class={`bg-primary h-3 ${capability.levelClass}`} />
         </td>
       </tr>
     ))

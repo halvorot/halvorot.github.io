@@ -1,12 +1,10 @@
 ---
-import { Image } from "astro:assets";
 import { getImage } from "astro:assets";
 import H1 from "./H1.astro";
 import CapabilityLevels from "./CapabilityLevels.astro";
 import techLightsBackgroundImage from "../assets/images/tech-lights-bg.jpg";
 import CertificationsCarousel from "./CertificationsCarousel.astro";
 import H2 from "./H2.astro";
-import SecondaryButton from "./SecondaryButton.astro";
 
 const optimizedBackgroundImage = await getImage({
   src: techLightsBackgroundImage,
@@ -15,7 +13,7 @@ const backgroundImageCss = `url(${optimizedBackgroundImage.src})`;
 ---
 
 <section id="capabilities" class="bg-image-section">
-  <main class="text-white m-auto max-w-3xl p-4">
+  <main class="text-light m-auto max-w-3xl p-4">
     <H1 preText="My main " gradientText="capabilities" />
     <H2 text="knowledge level in my main capabilities" />
     <CapabilityLevels />

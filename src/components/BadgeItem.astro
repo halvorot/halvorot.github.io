@@ -21,13 +21,13 @@ const {
   image,
   imageAlt,
   title,
-  badgeBackgroundClass = "bg-slate-200",
+  badgeBackgroundClass = "bg-light",
 } = Astro.props;
 ---
 
 <a href={href} target="_blank">
   <div
-    class="text-slate-200 inline-flex flex-col items-center justify-center text-center leading-5"
+    class="text-light inline-flex flex-col items-center justify-center text-center leading-5"
   >
     <div
       class=`${badgeBackgroundClass} w-24 aspect-square m-1 rounded-full overflow-hidden inline-flex items-center justify-center`

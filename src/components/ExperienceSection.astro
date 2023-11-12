@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import { getImage } from "astro:assets";
 import { getCollection } from "astro:content";
 import H1 from "./H1.astro";
@@ -22,12 +21,12 @@ const orderedExperiences = [...experiences].sort((a, b) =>
 ---
 
 <section id="experience" class="bg-image-section pb-14">
-  <main class="text-white m-auto max-w-3xl p-4">
+  <main class="text-light m-auto max-w-3xl p-4">
     <H1 preText="My " gradientText="experience" />
     <H2 text="Timeline" />
     <div class="mb-14">
       <span
-        class="bg-orange-500 absolute left-1/2 hidden h-[59rem] w-0.5 md:block"
+        class="bg-primary absolute left-1/2 hidden h-[59rem] w-0.5 md:block"
       ></span>
       {
         orderedExperiences.map((experience, index) => {
@@ -67,7 +66,7 @@ const orderedExperiences = [...experiences].sort((a, b) =>
         image={hLogo}
         imageAlt="Halvor Teigen logo"
         title="This website"
-        badgeBackgroundClass="bg-black"
+        badgeBackgroundClass="bg-dark"
       />
     </div>
   </main>

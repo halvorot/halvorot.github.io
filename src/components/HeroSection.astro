@@ -12,7 +12,7 @@ const halvorBackgroundImageCss = `url(${optimizedHalvorBackgroundImage.src})`;
 ---
 
 <section class="halvor-bg-section">
-  <main class="text-white m-auto max-w-3xl p-4">
+  <main class="text-light m-auto max-w-3xl p-4">
     <div class="mt-16 flex flex-col items-center pt-2">
       <H1 preText="Hi, I'm " gradientText="Halvor Teigen" />
       <H2 text="Backend developer & DevOps enthusiast" />
@@ -33,7 +33,7 @@ const halvorBackgroundImageCss = `url(${optimizedHalvorBackgroundImage.src})`;
     </div>
     <div
       id="ingress-box"
-      class="bg-neutral-950 mb-24 mt-10 flex flex-col items-center justify-center rounded-xl px-3 py-12 text-center md:mt-12 md:p-16"
+      class="bg-dark mb-24 mt-10 flex flex-col items-center justify-center rounded-xl px-3 py-12 text-center md:mt-12 md:p-16"
     >
       <Icon name="h-logo" class="mb-10 w-20" alt="Halvor Teigen Logo" />
       <p class="ingress">
@@ -52,7 +52,7 @@ const halvorBackgroundImageCss = `url(${optimizedHalvorBackgroundImage.src})`;
 
 <style define:vars={{ halvorBackgroundImageCss }}>
   .ingress strong {
-    @apply text-orange-300 opacity-80;
+    @apply text-secondary opacity-100;
   }
 
   .halvor-bg-section {

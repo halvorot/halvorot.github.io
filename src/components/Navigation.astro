@@ -5,13 +5,13 @@ import { Icon } from "astro-icon";
 import navData from "../data/navData";
 ---
 
-<nav class="bg-neutral-950 absolute z-50 w-full bg-opacity-40">
+<nav class="bg-dark absolute z-50 w-full bg-opacity-40">
   <div
     class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4"
   >
     <div class="flex items-center">
       <Icon name="h-logo" class="mr-3 w-10" alt="Halvor Teigen Logo" />
-      <span class="text-white hidden text-2xl font-semibold capitalize xs:block"
+      <span class="text-light hidden text-2xl font-semibold capitalize xs:block"
         >Halvor Teigen</span
       >
     </div>
@@ -25,7 +25,7 @@ import navData from "../data/navData";
         id="menu-btn"
         data-collapse-toggle="navbar-cta"
         type="button"
-        class="text-slate-200 hover:bg-gray-700 focus:ring-gray-600 inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 md:hidden"
+        class="text-light hover:bg-dark-accent/30 focus:ring-light-accent/10 inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 md:hidden"
         aria-controls="navbar-cta"
         aria-expanded="false"
       >
@@ -55,7 +55,7 @@ import navData from "../data/navData";
       >
         {
           navData.map((item) => (
-            <li class="bg-transparent hover:text-orange-300 text-white block py-2 pl-3 pr-4 md:p-0">
+            <li class="bg-transparent text-light hover:text-secondary block py-2 pl-3 pr-4 md:p-0">
               <a
                 href={item.path}
                 target={
@@ -75,7 +75,7 @@ import navData from "../data/navData";
 
 <style>
   [aria-current="page"] {
-    @apply text-orange-500;
+    @apply text-primary;
   }
 </style>
 
@@ -99,5 +99,17 @@ import navData from "../data/navData";
         navBar?.classList.toggle("bg-opacity-40");
       }
     });
+  });
+
+  // Hide menu if click outside menu/navbar
+  document.documentElement.addEventListener("click", () => {
+    if (!navBarLinksDropdown?.classList.contains("hidden")) {
+      navBarLinksDropdown?.classList.add("hidden");
+      navBar?.classList.add("bg-opacity-40");
+    }
+  });
+
+  navBar?.addEventListener("click", (event) => {
+    event.stopPropagation();
   });
 </script>

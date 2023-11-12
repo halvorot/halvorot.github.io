@@ -43,14 +43,14 @@ const CookieConsent: Component = () => {
         id="cookie-banner"
         class={`${
           cookies() === "granted" || cookies() === "denied" ? "hidden" : ""
-        } border-neutral-900 bg-neutral-950 text-slate-200 fixed bottom-0 right-0 z-50 m-2 max-w-md rounded-lg border-2 shadow-xl`}
+        } border-dark-accent bg-dark text-light fixed bottom-0 right-0 z-50 m-2 max-w-md rounded-lg border-2 shadow-xl`}
       >
         <div class="p-4 text-center">
           <p class="mb-4 text-sm sm:text-base">
             We use cookies to analyze our website and make your experience even
             better. To learn more, see our{" "}
             <a
-              class="text-orange-300 hover:text-orange-400 underline"
+              class="text-secondary hover:text-secondary-accent underline"
               href="/privacy-policy"
             >
               Privacy Policy.
@@ -59,13 +59,13 @@ const CookieConsent: Component = () => {
 
           <div class="mx-auto">
             <button
-              class="bg-transparent text-slate-200 hover:bg-neutral-900 mr-2 rounded-md px-4 py-2 text-sm transition"
+              class="bg-transparent hover:bg-dark-accent text-light mr-2 rounded-md px-4 py-2 text-sm transition"
               onClick={handleDecline}
             >
               Decline
             </button>
             <button
-              class="text-slate-200 bg-orange-600 hover:bg-orange-700 focus:ring-orange-800 mr-3 rounded-lg px-4 py-2 text-center font-medium transition focus:outline-none focus:ring-4"
+              class="text-light bg-primary hover:bg-primary-accent focus:ring-primary-accent/80 focus:ring-3 mr-3 rounded-lg px-4 py-2 text-center font-medium transition focus:outline-none"
               onClick={handleAccept}
             >
               Accept
