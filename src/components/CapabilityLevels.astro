@@ -1,33 +1,33 @@
 ---
 interface Capability {
   name: string;
-  levelClass: string;
+  levelPercent: number;
 }
 
 const capabilities: Capability[] = [
   {
     name: "JAVA",
-    levelClass: "w-full",
+    levelPercent: 100,
   },
   {
     name: "CI/CD",
-    levelClass: "w-3/4",
+    levelPercent: 75,
   },
   {
     name: "KUBERNETES",
-    levelClass: "w-2/3",
+    levelPercent: 66,
   },
   {
     name: "KAFKA",
-    levelClass: "w-4/5",
+    levelPercent: 80,
   },
   {
     name: "KOTLIN",
-    levelClass: "w-2/3",
+    levelPercent: 66,
   },
   {
     name: "PYTHON",
-    levelClass: "w-4/5",
+    levelPercent: 80,
   },
 ];
 ---
@@ -40,7 +40,7 @@ const capabilities: Capability[] = [
           <p class="mr-5">{capability.name}</p>
         </td>
         <td class="w-full">
-          <div class={`bg-primary h-3 ${capability.levelClass}`} />
+          <div style={{width: capability.levelPercent + "%"}} class="bg-primary h-3" aria-label={`${capability.levelPercent}%`} />
         </td>
       </tr>
     ))
