@@ -7,7 +7,7 @@ const certifications = await getCollection("certifications");
 
 <div class="cert-wrapper mb-14 inline-flex w-full overflow-x-auto">
   {
-    certifications.reverse().map((certificationEntry) => (
+    certifications.map((certificationEntry) => (
       <div class="cert-item mx-1">
         <BadgeItem
           href={certificationEntry.data.certificateLink}
