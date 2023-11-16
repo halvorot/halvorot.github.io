@@ -5,7 +5,7 @@ import { Icon } from "astro-icon";
 import navData from "../data/navData";
 ---
 
-<nav class="bg-dark absolute z-50 w-full bg-opacity-40">
+<nav class="bg-dark absolute z-50 w-full bg-opacity-40 backdrop-blur-2xl">
   <div
     class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4"
   >
@@ -86,17 +86,15 @@ import navData from "../data/navData";
   // Toggle menu hidden when menu button clicked
   menuButton?.addEventListener("click", () => {
     navBarLinksDropdown?.classList.toggle("hidden");
-    navBar?.classList.toggle("bg-opacity-40");
   });
 
-  // Toggle menu hidden when menu button clicked
+  // Hide menu when nav links clicked
   const navLinks = document.querySelectorAll("nav a");
   navLinks.forEach((navLink) => {
     navLink.addEventListener("click", () => {
       const styles = menuButton && getComputedStyle(menuButton);
       if (styles?.display !== "none") {
         navBarLinksDropdown?.classList.toggle("hidden");
-        navBar?.classList.toggle("bg-opacity-40");
       }
     });
   });
@@ -105,7 +103,6 @@ import navData from "../data/navData";
   document.documentElement.addEventListener("click", () => {
     if (!navBarLinksDropdown?.classList.contains("hidden")) {
       navBarLinksDropdown?.classList.add("hidden");
-      navBar?.classList.add("bg-opacity-40");
     }
   });
 
