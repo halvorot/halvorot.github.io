@@ -11,7 +11,11 @@ const CookieConsent: Component = () => {
 
   // get dates for cookie expiration
   let today = new Date();
-  let oneYear = new Date(today.getFullYear() + 1, today.getMonth(), today.getDate());
+  let oneYear = new Date(
+    today.getFullYear() + 1,
+    today.getMonth(),
+    today.getDate(),
+  );
 
   const handleAccept = () => {
     setCookies("granted");
@@ -43,14 +47,14 @@ const CookieConsent: Component = () => {
         id="cookie-banner"
         class={`${
           cookies() === "granted" || cookies() === "denied" ? "hidden" : ""
-        } border-dark-accent bg-dark text-light fixed bottom-0 right-0 z-50 m-2 max-w-md rounded-lg border-2 shadow-xl`}
+        } fixed bottom-0 right-0 z-50 m-2 max-w-lg rounded-lg border-2 border-dark-accent bg-dark text-light shadow-xl 2xl:bottom-auto 2xl:left-1/2 2xl:right-auto 2xl:top-1/2 2xl:-translate-x-1/2 2xl:-translate-y-1/2 2xl:px-10 2xl:py-5`}
       >
-        <div class="p-4 text-center">
+        <div class="p-5 py-10 text-center">
           <p class="mb-4 text-sm sm:text-base">
             We use cookies to analyze our website and make your experience even
             better. To learn more, see our{" "}
             <a
-              class="text-secondary hover:text-secondary-accent underline"
+              class="text-secondary underline hover:text-secondary-accent"
               href="/privacy-policy"
             >
               Privacy Policy.
@@ -59,13 +63,13 @@ const CookieConsent: Component = () => {
 
           <div class="mx-auto">
             <button
-              class="bg-transparent hover:bg-dark-accent text-light mr-2 rounded-md px-4 py-2 text-sm transition"
+              class="mr-2 rounded-md bg-transparent px-4 py-2 text-sm text-light transition hover:bg-dark-accent"
               onClick={handleDecline}
             >
               Decline
             </button>
             <button
-              class="text-light bg-primary hover:bg-primary-accent focus:ring-primary-accent/80 focus:ring-3 mr-3 rounded-lg px-4 py-2 text-center font-medium transition focus:outline-none"
+              class="focus:ring-3 mr-3 rounded-lg bg-primary px-4 py-2 text-center font-medium text-light transition hover:bg-primary-accent focus:outline-none focus:ring-primary-accent/80"
               onClick={handleAccept}
             >
               Accept
