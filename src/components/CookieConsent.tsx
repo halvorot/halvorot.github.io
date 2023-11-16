@@ -10,8 +10,8 @@ const CookieConsent: Component = () => {
   const [isMounted, setIsMounted] = createSignal(false);
 
   // get dates for cookie expiration
-  let d = new Date();
-  let oneYear = new Date(d.getFullYear() + 1, d.getMonth(), d.getDate());
+  let today = new Date();
+  let oneYear = new Date(today.getFullYear() + 1, today.getMonth(), today.getDate());
 
   const handleAccept = () => {
     setCookies("granted");
