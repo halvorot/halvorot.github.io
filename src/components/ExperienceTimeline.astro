@@ -1,0 +1,84 @@
+---
+import TagTile from "./TagTile.astro";
+import { getCollection } from "astro:content";
+
+const experiences = await getCollection("experience");
+const orderedExperiences = [...experiences].sort((a, b) =>
+  a.data.startDate > b.data.startDate ? -1 : 1,
+);
+---
+
+<div class="experience-timeline">
+  {
+    orderedExperiences.map((experience, index) => {
+      const { startDate, endDate, heading, subHeading, description, tags } =
+        experience.data;
+      return (
+        <div class="experience-item">
+          <div class="experience-content">
+            <p class="text-lg font-bold leading-6 text-primary">
+              {startDate.getFullYear()}-{endDate?.getFullYear()}
+            </p>
+            <h3 class="mb-3 text-2xl font-light text-light">{heading}</h3>
+            <h4 class="text-lg font-medium text-light">{subHeading}</h4>
+            <p class="text-base text-secondary">{description}</p>
+            {tags && (
+              <div
+                class={`tagtile-container mt-2 inline-flex flex-wrap items-center gap-1`}
+              >
+                {tags?.map((tag) => (
+                  <TagTile text={tag} />
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      );
+    })
+  }
+</div>
+
+<style>
+  /* CONTAINER & SHARED */
+  .experience-timeline,
+  .experience-item {
+    position: relative;
+  } /* required for absolute position to work properly */
+  .experience-timeline::before,
+  .experience-item::before,
+  .experience-item::after {
+    position: absolute;
+  }
+  .experience-timeline {
+    @apply mb-20;
+  }
+
+  /* VERTICAL LINE */
+  .experience-timeline::before {
+    content: "";
+    @apply hidden bottom-2 top-7 w-0.5 bg-primary md:block md:left-1/2;
+  }
+
+  /* EXPERIENCE ITEMS */
+  .experience-item {
+    @apply flex w-full mb-2 md:mb-0;
+  }
+  .experience-item:nth-child(odd) {
+    @apply justify-end;
+  } /* alternate */
+  .experience-item:nth-child(even) {
+    @apply text-right;
+  }
+  .experience-item:nth-child(even) .tagtile-container {
+    @apply justify-end;
+  }
+  .experience-content {
+    @apply m-5 mb-2 xs:max-w-xs;
+  }
+
+  /* CIRCLES ON VERTICAL LINE */
+  .experience-item::after {
+    content: "";
+    @apply hidden top-6 h-4 w-4 rounded-full bg-primary md:block md:left-[49.05%];
+  }
+</style>
