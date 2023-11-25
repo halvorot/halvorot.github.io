@@ -3,19 +3,25 @@ import PrimaryButton from "./PrimaryButton.astro";
 import { Icon } from "astro-icon";
 
 import navData from "../data/navData";
+import SecondaryButton from "./SecondaryButton.astro";
 ---
 
 <nav class="bg-dark absolute z-50 w-full bg-opacity-40 backdrop-blur-2xl">
   <div
     class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4"
   >
-    <div class="flex items-center">
+    <div class="flex flex-1 items-center">
       <Icon name="h-logo" class="mr-3 w-10" alt="Halvor Teigen Logo" />
       <span class="text-light hidden text-2xl font-semibold capitalize xs:block"
         >Halvor Teigen</span
       >
     </div>
-    <div class="flex md:order-2">
+    <div class="flex flex-1 justify-end gap-4 md:order-2">
+      <SecondaryButton 
+        text="Contact on LinkedIn"
+        href="https://www.linkedin.com/in/halvor-teigen/"
+        ariaLabel="Contact me on LinkedIn"
+        />
       <PrimaryButton
         text="Download CV"
         href="/halvor-teigen-cv-english.pdf"
@@ -47,7 +53,7 @@ import navData from "../data/navData";
       </button>
     </div>
     <div
-      class="hidden w-full items-center justify-between md:order-1 md:flex md:w-auto"
+      class="hidden flex-1 w-full items-center justify-center md:order-1 md:flex md:w-auto"
       id="navbar-cta"
     >
       <ul
