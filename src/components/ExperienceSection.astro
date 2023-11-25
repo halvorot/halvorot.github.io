@@ -6,6 +6,7 @@ import BadgeItem from "./BadgeItem.astro";
 import snowyMountainsBackgroundImage from "../assets/images/snowy-mountains-bg.jpg";
 import wishlyLogo from "../assets/images/wishly-logo.png";
 import hLogo from "../icons/h-logo.svg";
+import certPortalLogo from "../assets/images/cert-portal-logo.svg";
 import ExperienceTimeline from "./ExperienceTimeline.astro";
 
 const optimizedBackgroundImage = await getImage({
@@ -15,25 +16,38 @@ const backgroundImageCss = `url(${optimizedBackgroundImage.src})`;
 ---
 
 <section id="experience" class="bg-image-section pb-14">
-  <main class="text-light m-auto max-w-3xl p-4">
+  <main class="m-auto max-w-3xl p-4 text-light">
     <H1 preText="My " gradientText="experience" />
     <H2 text="Timeline" />
     <ExperienceTimeline />
     <H2 text="Personal projects" />
     <div class="flex justify-evenly">
-      <BadgeItem
-        href="https://github.com/halvorot/wishly-wishlist-app/tree/main"
-        image={wishlyLogo}
-        imageAlt="Wishly logo"
-        title="Wishly - The Wishlist App"
-      />
-      <BadgeItem
-        href="https://github.com/halvorot/halvorot.github.io"
-        image={hLogo}
-        imageAlt="Halvor Teigen logo"
-        title="This website"
-        badgeBackgroundClass="bg-dark"
-      />
+      <div class="flex flex-1 justify-center">
+        <BadgeItem
+          href="https://github.com/halvorot/wishly-wishlist-app/tree/main"
+          image={wishlyLogo}
+          imageAlt="Wishly logo"
+          title="Wishly - The Wishlist App"
+        />
+      </div>
+      <div class="flex flex-1 justify-center">
+        <BadgeItem
+          href="https://github.com/halvorot/halvorot.github.io"
+          image={hLogo}
+          imageAlt="Halvor Teigen logo"
+          title="This website"
+          badgeBackgroundClass="bg-dark"
+        />
+      </div>
+      <div class="flex flex-1 justify-center">
+        <BadgeItem
+          href="https://github.com/halvorot/cert-portal"
+          image={certPortalLogo}
+          imageAlt="Cert Portal logo"
+          title="CertPortal"
+          badgeBackgroundClass="bg-dark"
+        />
+      </div>
     </div>
   </main>
 </section>
