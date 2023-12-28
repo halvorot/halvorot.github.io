@@ -1,6 +1,6 @@
 ---
 import { getImage } from "astro:assets";
-import { Icon } from "astro-icon";
+import { Icon } from 'astro-icon/components'
 import H1 from "./H1.astro";
 import halvorBackgroundImage from "../assets/images/halvor-bg.jpg";
 import H2 from "./H2.astro";
@@ -35,7 +35,7 @@ const halvorBackgroundImageCss = `url(${optimizedHalvorBackgroundImage.src})`;
       id="ingress-box"
       class="bg-dark mb-24 mt-10 flex flex-col items-center justify-center rounded-xl px-3 py-12 text-center md:mt-12 md:p-16"
     >
-      <Icon name="h-logo" class="mb-10 w-20" alt="Halvor Teigen Logo" />
+      <Icon name="h-logo" class="mb-10 w-20" />
       <p class="ingress">
         As a software engineer with the <strong
           >everything-can-be-learned</strong
