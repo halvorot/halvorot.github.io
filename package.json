@@ -17,7 +17,7 @@
     "@astrojs/solid-js": "3.0.3",
     "@astrojs/tailwind": "5.1.0",
     "@iconify-json/bi": "^1.1.22",
-    "astro": "4.0.8",
+    "astro": "4.0.9",
     "astro-icon": "1.0.1",
     "solid-js": "1.8.7",
     "tailwindcss": "3.4.0"
