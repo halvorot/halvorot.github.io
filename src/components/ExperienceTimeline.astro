@@ -10,7 +10,7 @@ const orderedExperiences = [...experiences].sort((a, b) =>
 
 <div class="experience-timeline">
   {
-    orderedExperiences.map((experience, index) => {
+    orderedExperiences.map((experience) => {
       const { startDate, endDate, heading, subHeading, description, tags } =
         experience.data;
       return (
@@ -40,15 +40,19 @@ const orderedExperiences = [...experiences].sort((a, b) =>
 
 <style>
   /* CONTAINER & SHARED */
+
+  /* required for absolute position to work properly */
   .experience-timeline,
   .experience-item {
     position: relative;
-  } /* required for absolute position to work properly */
+  }
+
   .experience-timeline::before,
   .experience-item::before,
   .experience-item::after {
     position: absolute;
   }
+
   .experience-timeline {
     @apply mb-20;
   }
@@ -56,22 +60,27 @@ const orderedExperiences = [...experiences].sort((a, b) =>
   /* VERTICAL LINE */
   .experience-timeline::before {
     content: "";
-    @apply hidden bottom-2 top-7 w-0.5 bg-primary md:block md:left-1/2;
+    @apply bottom-2 top-7 hidden w-0.5 bg-primary md:left-1/2 md:block;
   }
 
   /* EXPERIENCE ITEMS */
   .experience-item {
-    @apply flex w-full mb-2 md:mb-0;
+    @apply mb-2 flex w-full md:mb-0;
   }
+
   .experience-item:nth-child(odd) {
     @apply justify-end;
-  } /* alternate */
+  }
+
+  /* alternate */
   .experience-item:nth-child(even) {
     @apply text-right;
   }
+
   .experience-item:nth-child(even) .tagtile-container {
     @apply justify-end;
   }
+
   .experience-content {
     @apply m-5 mb-2 xs:max-w-xs;
   }
@@ -79,6 +88,6 @@ const orderedExperiences = [...experiences].sort((a, b) =>
   /* CIRCLES ON VERTICAL LINE */
   .experience-item::after {
     content: "";
-    @apply hidden top-6 h-4 w-4 rounded-full bg-primary md:block md:left-[49.05%];
+    @apply top-6 hidden h-4 w-4 rounded-full bg-primary md:left-[49.05%] md:block;
   }
 </style>
