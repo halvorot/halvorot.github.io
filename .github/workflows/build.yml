@@ -11,8 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "18.x"
+        uses: actions/
+
       - run: npm ci
       - run: npm run build --if-present

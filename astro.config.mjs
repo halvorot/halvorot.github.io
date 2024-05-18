@@ -7,10 +7,10 @@ import solidJs from "@astrojs/solid-js";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://halvorot.github.io',
+  site: 'https://halvorteigen.no',
   integrations: [icon(), tailwind(), sitemap(
     {
-      filter: (page) => page !== 'https://halvorot.github.io/privacy-policy/',
+      filter: (page) => page !== 'https://halvorteigen.no/privacy-policy/',
     }
   ), solidJs()]
 });
