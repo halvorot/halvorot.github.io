@@ -10,6 +10,10 @@ const capabilities: Capability[] = [
     levelPercent: 100,
   },
   {
+    name: "REACT",
+    levelPercent: 80,
+  },
+  {
     name: "CI/CD",
     levelPercent: 80,
   },
@@ -36,11 +40,15 @@ const capabilities: Capability[] = [
   {
     capabilities.map((capability) => (
       <tr class="h-12 w-full">
-        <td class="text-secondary text-right">
+        <td class="text-right text-secondary">
           <p class="mr-5">{capability.name}</p>
         </td>
         <td class="w-full">
-          <div style={{width: capability.levelPercent + "%"}} class="bg-primary h-3" aria-label={`${capability.levelPercent}%`} />
+          <div
+            style={{ width: capability.levelPercent + "%" }}
+            class="h-3 bg-primary"
+            aria-label={`${capability.levelPercent}%`}
+          />
         </td>
       </tr>
     ))
