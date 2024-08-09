@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 
 type ImageType = {
   src: string;
@@ -27,12 +28,15 @@ const {
 
 <a href={href} target="_blank">
   <div
-    class="text-light inline-flex flex-col items-center justify-center text-center leading-5"
+    class="inline-flex flex-col items-center justify-center text-center leading-5 text-light"
   >
-    <div
-      class=`${badgeBackgroundClass} w-24 aspect-square m-1 rounded-full overflow-hidden inline-flex items-center justify-center`
-    >
-      <Image src={image} alt={imageAlt} />
+    <div class="relative">
+      <div
+        class=`${badgeBackgroundClass} w-24 aspect-square m-1 rounded-full overflow-hidden inline-flex items-center justify-center`
+      >
+        <Image src={image} alt={imageAlt} />
+      </div>
+      <Icon name="bi:box-arrow-up-right" class="absolute right-1 top-0 text-light-accent" />
     </div>
     <small>{title}</small>
   </div>
