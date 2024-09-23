@@ -17,7 +17,7 @@ const orderedExperiences = [...experiences].sort((a, b) =>
         <div class="experience-item">
           <div class="experience-content">
             <p class="text-lg font-bold leading-6 text-primary">
-              {endDate.getFullYear() === undefined
+              {endDate?.getFullYear() === undefined
                 ? `${startDate.getFullYear()}-`
                 : startDate.getFullYear() === endDate.getFullYear()
                   ? startDate.getFullYear()
